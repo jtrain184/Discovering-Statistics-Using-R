@@ -1,0 +1,9 @@
+getwd()
+load(".RData")
+getwd()
+cd
+~/Documents/Discovering Statistics Using R/Chapter 3/.RData
+load("~/Documents/Discovering Statistics Using R/Chapter 3/.RData")
+getwd()
+setwd("~/Documents/Discovering Statistics Using R/Chapter 3/")
+getwd()
