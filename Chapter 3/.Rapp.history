@@ -1,9 +1,88 @@
+metallica
+metallica$childAge
+metallica$childAge; metallica$Name
+metallica(1)
+metallica[1]
+metallica[1][2]
+metallica[2]
+metallica[1,2]
+metallica[1]
+metallica[1]metallica[2]
+metallica[1]
+metallica[2]
+name
+Name
+metallicaNames
+metallica$Name
+metallica$Age
+metallicaAges
+help c
+c help
+c?
+?c
+help(c)
+help(factor)
+#--------R souls tip 3.5-----------#
+husband<-c("1973-06-21", "1970-07-16", "1949-10-08", "1969-05-24")#
+wife<-c("1984-11-12", "1973-08-02", "1948-11-11", "1983-07-23")#
+agegap <- husband-wife#
+husband<-as.Date(c("1973-06-21", "1970-07-16", "1949-10-08", "1969-05-24"))#
+wife<-as.Date(c("1984-11-12", "1973-08-02", "1948-11-11", "1983-07-23"))#
+agegap <- husband-wife#
+agegap
+agegap
+job
+library(rcmdr)
+library(Rcmdr)
+install.packages("Rcmdr", dependencies= TRUE)
+library(Rcmdr)
+library(Rcmdr)
 getwd()
-load(".RData")
 getwd()
-cd
-~/Documents/Discovering Statistics Using R/Chapter 3/.RData
-load("~/Documents/Discovering Statistics Using R/Chapter 3/.RData")
-getwd()
-setwd("~/Documents/Discovering Statistics Using R/Chapter 3/")
-getwd()
+income.above.10k<-subset(lecturerData, income >= 10000, c("name", "income", "job"))
+income.above.10k
+lecturerData
+help(gl)
+job<-c(1,1,1,1,1,2,2,2,2,2)#
+job<-c(rep(1, 5),rep(2, 5))#
+job<-factor(job, levels = c(1:2), labels = c("Lecturer", "Student"))#
+job<-gl(2, 5, labels = c("Lecturer", "Student"))
+lecturerData
+job
+lecturerData<-data.frame(name, birth_date, job, friends, alcohol,income, neurotic)
+lecturerData
+income.above.10k
+income.above.10k<-subset(lecturerData, income >= 10000, c("name", "income", "job"))
+income.above.10k
+sober.people<-subset(lecturerData, alcohol <= 12, c("name", "job", "income", friends))
+sober.people<-subset(lecturerData, alcohol <= 12, c("name", "job", "income", "friends"))
+sober.people
+sober.people<-subset(lecturerData[alcohol <= 12, c("name", "job", "income", "friends")]
+sober.people
+sober.people<-lecturerData[alcohol <= 12, c("name", "job", "income", "friends")]
+sober.people
+sober.people<-subset(lecturerData, alcohol <= 12, select = c("name", "job", "income", "friends"))
+sober.people
+help(select.list)
+help(subset)
+help(matrix)
+alcoholPersonalityMatrix
+lecturerData
+satisfactionData = read.delim("Honeymoon Period.dat",  header = TRUE)#
+satisfactionStacked<-stack(satisfactionData, select = c("Satisfaction_Base", "Satisfaction_6_Months", "Satisfaction_12_Months", "Satisfaction_18_Months"))
+satisfactionData = read.delim(file.choose = TRUE,  header = TRUE)#
+satisfactionStacked<-stack(satisfactionData, select = c("Satisfaction_Base", "Satisfaction_6_Months", "Satisfaction_12_Months", "Satisfaction_18_Months"))
+satisfactionData = read.delim(file.choose(),  header = TRUE)#
+satisfactionStacked<-stack(satisfactionData, select = c("Satisfaction_Base", "Satisfaction_6_Months", "Satisfaction_12_Months", "Satisfaction_18_Months"))
+satisfactionData = read.delim("Honeymoon Period.dat",  header = TRUE)#
+satisfactionStacked<-stack(satisfactionData, select = c("Satisfaction_Base", "Satisfaction_6_Months", "Satisfaction_12_Months", "Satisfaction_18_Months"))
+satisfactionData
+satisfactionStacked
+library(Rcmdr)
+Rcmdr
+Commander()
+satisfaction.unstacked<-unstack(satisfactionStacked)
+satisfaction.unstacked
+satisfactionData
+satisfactionStacked
+satisfaction.unstacked
