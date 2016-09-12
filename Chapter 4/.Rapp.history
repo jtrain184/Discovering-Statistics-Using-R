@@ -1,0 +1,108 @@
+metallica
+metallica$childAge
+metallica$childAge; metallica$Name
+metallica(1)
+metallica[1]
+metallica[1][2]
+metallica[2]
+metallica[1,2]
+metallica[1]
+metallica[1]metallica[2]
+metallica[1]
+metallica[2]
+name
+Name
+metallicaNames
+metallica$Name
+metallica$Age
+metallicaAges
+help c
+c help
+c?
+?c
+help(c)
+help(factor)
+#--------R souls tip 3.5-----------#
+husband<-c("1973-06-21", "1970-07-16", "1949-10-08", "1969-05-24")#
+wife<-c("1984-11-12", "1973-08-02", "1948-11-11", "1983-07-23")#
+agegap <- husband-wife#
+husband<-as.Date(c("1973-06-21", "1970-07-16", "1949-10-08", "1969-05-24"))#
+wife<-as.Date(c("1984-11-12", "1973-08-02", "1948-11-11", "1983-07-23"))#
+agegap <- husband-wife#
+agegap
+agegap
+job
+library(rcmdr)
+library(Rcmdr)
+install.packages("Rcmdr", dependencies= TRUE)
+library(Rcmdr)
+getwd()
+setwd("~/Documents/Discovering Statistics Using R/Chapter 4/")
+getwd()
+install.packages(c("ggplot2", "plyr"))
+library(ggplot2)
+library(reshape)
+library(plyr)
+lecturerData
+facebook.data<-read.delim("FacebookNarcissism.dat", header = TRUE)
+facebook.data
+Commander
+library(rcmdr)
+library(Rcmdr)
+graph <- ggplot(facebook.data, aes(NPQC_R_Total, Rating))
+graph + geom_point()
+graph + geom_point(shape = 17)
+graph + geom_point()
+graph + geom_point(size = 6)
+graph + geom_point(aes(color = Rating_Type))
+graph + geom_point(aes(colour = Rating_Type), position = "jitter") + opts(title = "geom_point(aes(colour = Rating_Type), position = jitter)")
+graph + geom_point() + opts(title = "geom_point()")
+help(opts)
+??opts
+opts()
+graph + geom_point(aes(color = Rating_Type), postion = "jitter")
+graph + geom_point(aes(color = Rating_Type), position = "jitter")
+graph + geom_point(aes(shape = Rating_Type), position = "jitter")
+imageDirectory<-file.path(Sys.getenv("HOME"), "Images/")
+saveInImageDirectory<-function(filename){#
+	imageFile <- file.path(imageDirectory, filename)#
+	ggsave(imageFile)	#
+}
+saveInImageDirectory("04 Tutorial Size.png")
+imageDirectory<-file.path(Sys.getenv("HOME"), "Images")
+saveInImageDirectory("04 Tutorial Size.png")
+saveInImageDirectory("04_Tutorial_Size.png")
+imageDirectory<-file.path(Sys.getenv("HOME"), "Documents", "Discovering Statistics Using R", "Chapter4", "Images")
+saveInImageDirectory("04_Tutorial_Size.png")
+ggsave("Facebook Narcissism.png")
+getwd()
+imageDirectory
+saveInImageDirectory<-function(filename){#
+	imageFile <- file.path(imageDirectory, filename)#
+	ggsave(imageFile)	#
+}
+saveInImageDirectory("04_Tutorial_Size.png")
+saveInImageDirectory("04_Tutorial_Size.png")
+getwd()
+pwd
+imageDirectory
+imageDirectory <- file.path("/Users/bman/Documents/Discovering Statistics Using R/Chapter 4/Images/")
+imageDirectory
+saveInImageDirectory<-function(filename){#
+	imageFile <- file.path(imageDirectory, filename)#
+	ggsave(imageFile)	#
+}
+saveInImageDirectory("04_Tutorial_Size.png")
+imageDirectory<-file.path(Sys.getenv("HOME"), "Documents", "Discovering Statistics Using R", "Chapter 4", "Images")
+saveInImageDirectory<-function(filename){#
+	imageFile <- file.path(imageDirectory, filename)#
+	ggsave(imageFile)	#
+}
+saveInImageDirectory("04_Tutorial_Size.png")
+graph + labs(title = "geom_point(aes(shape = Rating_Type), position = jitter)")
+saveInImageDirectory("04 Tutorial Jitter2.png")
+graph + geom_point(aes(shape = Rating_Type), position = "jitter") labs(title = "geom_point(aes(shape = Rating_Type), position = jitter)")
+graph + geom_point(aes(shape = Rating_Type), position = "jitter") + labs(title = "geom_point(aes(shape = Rating_Type), position = jitter)")
+saveInImageDirectory("04 Tutorial Jitter2.png")
+exam.data <- read.delim("Exam Anxiety.dat", header = TRUE)
+exam.data
