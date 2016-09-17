@@ -63,23 +63,23 @@ cor(advertNA, use = "complete.obs",  method = "kendall")
 cor(x,y, use = "everything", method = "correlation type")
 cor.test(x,y, alternative = "string", method = "correlation type", conf.level = 0.95)
 
-examData = read.delim("Exam Anxiety.dat",  header = TRUE)
-examData
+exam.data = read.delim("Exam Anxiety.dat",  header = TRUE)
+exam.data
 
-cor(examData, use = "complete.obs", method = "pearson")
-cor(examData$Exam, examData$Anxiety, use = "complete.obs", method = 'pearson')
-examData2 <- examData[, c("Exam", "Anxiety", "Revise")]
-cor(examData2)
-cor(examData[, c("Exam", "Anxiety", "Revise")])
-cor(examData2)^2 * 100
+cor(exam.data, use = "complete.obs", method = "pearson")
+cor(exam.data$Exam, exam.data$Anxiety, use = "complete.obs", method = 'pearson')
+exam.data2 <- exam.data[, c("Exam", "Anxiety", "Revise")]
+cor(exam.data2)
+cor(exam.data[, c("Exam", "Anxiety", "Revise")])
+cor(exam.data2)^2 * 100
 
-examMatrix<-as.matrix(examData[, c("Exam", "Anxiety", "Revise")])
+examMatrix<-as.matrix(exam.data[, c("Exam", "Anxiety", "Revise")])
 Hmisc::rcorr(examMatrix)
-Hmisc::rcorr(as.matrix(examData[, c("Exam", "Anxiety", "Revise")]))
+Hmisc::rcorr(as.matrix(exam.data[, c("Exam", "Anxiety", "Revise")]))
 
-cor.test(examData$Anxiety, examData$Exam)
-cor.test(examData$Revise, examData$Exam)
-cor.test(examData$Anxiety, examData$Revise)
+cor.test(exam.data$Anxiety, exam.data$Exam)
+cor.test(exam.data$Revise, exam.data$Exam)
+cor.test(exam.data$Anxiety, exam.data$Revise)
 
 #--------Spearman's Rho----------
 
@@ -118,35 +118,35 @@ boot.ci(boot_kendall, 0.99)
 
 #--------Self Test----------
 
-bootR<-function(examData2,i) cor(examData2$Exam[i], examData2$Anxiety[i], use = "complete.obs")
-boot_pearson<-boot(examData2, bootR, 2000)
+bootR<-function(exam.data2,i) cor(exam.data2$Exam[i], exam.data2$Anxiety[i], use = "complete.obs")
+boot_pearson<-boot(exam.data2, bootR, 2000)
 boot_pearson
 boot.ci(boot_pearson)
 
 
-bootR<-function(examData2,i) cor(examData2$Revise[i], examData2$Anxiety[i], use = "complete.obs")
-boot_pearson<-boot(examData2, bootR, 2000)
+bootR<-function(exam.data2,i) cor(exam.data2$Revise[i], exam.data2$Anxiety[i], use = "complete.obs")
+boot_pearson<-boot(exam.data2, bootR, 2000)
 boot_pearson
 boot.ci(boot_pearson)
 
-bootR<-function(examData2,i) cor(examData2$Revise[i], examData2$Exam[i], use = "complete.obs")
-boot_pearson<-boot(examData2, bootR, 2000)
+bootR<-function(exam.data2,i) cor(exam.data2$Revise[i], exam.data2$Exam[i], use = "complete.obs")
+boot_pearson<-boot(exam.data2, bootR, 2000)
 boot_pearson
 boot.ci(boot_pearson)
 
-bootRho<-function(examData2,i) cor(examData2$Exam[i], examData2$Anxiety[i], use = "complete.obs", method = "spearman")
-boot_spearman<-boot(examData2, bootRho, 2000)
+bootRho<-function(exam.data2,i) cor(exam.data2$Exam[i], exam.data2$Anxiety[i], use = "complete.obs", method = "spearman")
+boot_spearman<-boot(exam.data2, bootRho, 2000)
 boot_spearman
 boot.ci(boot_spearman)
 
 
-bootRho<-function(examData2,i) cor(examData2$Revise[i], examData2$Anxiety[i], use = "complete.obs", method = "spearman")
-boot_spearman <-boot(examData2, bootRho, 2000)
+bootRho<-function(exam.data2,i) cor(exam.data2$Revise[i], exam.data2$Anxiety[i], use = "complete.obs", method = "spearman")
+boot_spearman <-boot(exam.data2, bootRho, 2000)
 boot_spearman
 boot.ci(boot_spearman)
 
-bootRho<-function(examData2,i) cor(examData2$Revise[i], examData2$Exam[i], use = "complete.obs", method = "spearman")
-boot_spearman <-boot(examData2, bootRho, 2000)
+bootRho<-function(exam.data2,i) cor(exam.data2$Revise[i], exam.data2$Exam[i], use = "complete.obs", method = "spearman")
+boot_spearman <-boot(exam.data2, bootRho, 2000)
 boot_spearman
 boot.ci(boot_spearman)
 
@@ -164,12 +164,12 @@ polyserial(catData$time, catData$gender)
 
 #-------Partial-----
 
-maleExam<-subset(examData, Gender == "Male", select= c("Exam", "Anxiety"))
-femaleExam<-subset(examData, Gender == "Female", select= c("Exam", "Anxiety"))
+maleExam<-subset(exam.data, Gender == "Male", select= c("Exam", "Anxiety"))
+femaleExam<-subset(exam.data, Gender == "Female", select= c("Exam", "Anxiety"))
 cor(maleExam)
 cor(femaleExam)
 
-pc<-pcor(c("Exam", "Anxiety", "Revise"), var(examData2))
+pc<-pcor(c("Exam", "Anxiety", "Revise"), var(exam.data2))
 pc
 pc^2
 pcor.test(pc, 1, 103)
