@@ -83,20 +83,20 @@ cor.test(exam.data$Anxiety, exam.data$Revise)
 
 #--------Spearman's Rho----------
 
-liarData = read.delim("The Biggest Liar.dat",  header = TRUE)
-liarData
+liar.data = read.delim("The Biggest Liar.dat",  header = TRUE)
+liar.data
 
-liarData = read.delim(file.choose(),  header = TRUE)
+liar.data = read.delim(file.choose(),  header = TRUE)
 
-cor(liarData$Position, liarData$Creativity, method = "spearman")
-cor.test(liarData$Position, liarData$Creativity, alternative = "less", method = "spearman")
+cor(liar.data$Position, liar.data$Creativity, method = "spearman")
+cor.test(liar.data$Position, liar.data$Creativity, alternative = "less", method = "spearman")
 
-liarMatrix<-as.matrix(liarData[, c("Position", "Creativity")])
+liarMatrix<-as.matrix(liar.data[, c("Position", "Creativity")])
 rcorr(liarMatrix)
 
 #--------Kendall's Tau----------
-cor(liarData$Position, liarData$Creativity, method = "kendall")
-cor.test(liarData$Position, liarData$Creativity, alternative = "less", method = "pearson")
+cor(liar.data$Position, liar.data$Creativity, method = "kendall")
+cor.test(liar.data$Position, liar.data$Creativity, alternative = "less", method = "pearson")
 
 cor(advertData$adverts, advertData$packets, method = "pearson")
 cor.test(advertData$adverts, advertData$packets, alternative = "more", method = "kendall")
@@ -110,8 +110,8 @@ cor.test(adverts, packets)
 #--------Bootstrapping----------
 
 
-bootTau<-function(liarData,i)cor(liarData$Position[i], liarData$Creativity[i], use = "complete.obs", method = "kendall")
-boot_kendall<-boot(liarData, bootTau, 2000)
+bootTau<-function(liar.data,i)cor(liar.data$Position[i], liar.data$Creativity[i], use = "complete.obs", method = "kendall")
+boot_kendall<-boot(liar.data, bootTau, 2000)
 boot_kendall
 boot.ci(boot_kendall)
 boot.ci(boot_kendall, 0.99)
@@ -154,13 +154,13 @@ boot.ci(boot_spearman)
 
 #-------Point Biserial-----
 
-catData = read.csv("pbcorr.csv",  header = TRUE)
-cor.test(catData$time, catData$gender)
-cor.test(catData$time, catData$recode)
-catFrequencies<-table(catData$gender)
+cat.data = read.csv("pbcorr.csv",  header = TRUE)
+cor.test(cat.data$time, cat.data$gender)
+cor.test(cat.data$time, cat.data$recode)
+catFrequencies<-table(cat.data$gender)
 prop.table(catFrequencies)
 
-polyserial(catData$time, catData$gender)
+polyserial(cat.data$time, cat.data$gender)
 
 #-------Partial-----
 

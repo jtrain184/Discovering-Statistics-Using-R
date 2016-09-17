@@ -1,0 +1,156 @@
+metallica
+metallica$childAge
+metallica$childAge; metallica$Name
+metallica(1)
+metallica[1]
+metallica[1][2]
+metallica[2]
+metallica[1,2]
+metallica[1]
+metallica[1]metallica[2]
+metallica[1]
+metallica[2]
+name
+Name
+metallicaNames
+metallica$Name
+metallica$Age
+metallicaAges
+help c
+c help
+c?
+?c
+help(c)
+help(factor)
+#--------R souls tip 3.5-----------#
+husband<-c("1973-06-21", "1970-07-16", "1949-10-08", "1969-05-24")#
+wife<-c("1984-11-12", "1973-08-02", "1948-11-11", "1983-07-23")#
+agegap <- husband-wife#
+husband<-as.Date(c("1973-06-21", "1970-07-16", "1949-10-08", "1969-05-24"))#
+wife<-as.Date(c("1984-11-12", "1973-08-02", "1948-11-11", "1983-07-23"))#
+agegap <- husband-wife#
+agegap
+agegap
+job
+library(rcmdr)
+library(Rcmdr)
+install.packages("Rcmdr", dependencies= TRUE)
+library(Rcmdr)
+exam.data
+scatter <- ggplot(exam.data, aes(Anxiety, Exam))
+library(ggplot)
+library(ggplot2)
+scatter <- ggplot(exam.data, aes(Anxiety, Exam))
+scatter
+scatter + geom_point()
+scatter + geom_point() + labs(x = "Exam Anxiety", y = "Exam Performance %")
+saveInImageDirectory("Exam Anxiety Vs Performance.png")
+scatter + geom_point() + labs(x = "Exam Anxiety", y = "Exam Performance %")
+scatter + geom_point() + geom_smooth() + labs(x = "Exam Anxiety", y = "Exam Performance %")
+saveInImageDirectory("Exam Anxiety Vs Performance with Regression Line.png")
+scatter + geom_point() + geom_smooth(method = "lm", color = "Red") + labs(x = "Exam Anxiety", y = "Exam Performance %")
+saveInImageDirectory("Exam Anxiety Vs Performance with Linear Regression Line.png")
+scatter <- ggplot(exam.data, aes(Anxiety, Exam, color = Gender))
+scatter + geom_point + geom_smooth(method = "lm")
+scatter
+scatter + geom_point + geom_smooth(method = "lm")
+scatter + geom_point() + geom_smooth(method = "lm")
+scatter
+scatter <- ggplot(exam.data, aes(Anxiety, Exam, color = Gender))
+scatter + geom_point() + geom_smooth(method = "lm")
+scatter + geom_point() + geom_smooth(method = "lm", aes(fill = Gender), alpha = 0.1) + labs(x = "Exam Anxiety", y = "Exam Performance %", colour = "Gender")
+saveInImageDirectory("Exam Anxiety Vs Performance by Gender.png")
+install.packages("WRS2")
+libarary(WRS2)
+library(WRS2)
+getwd()
+setwd("Documents/Discovering Statistics Using R/Chapter 6/")
+getwd()
+getwd()
+adverts <- c(5,4,4,6,8)
+packets <- c(8,9,10,13,15)
+advert.data <- data.frame(adverts, packets)
+advert.data
+scatter.advert.data <- ggplot(advert.data, aes(adverts, packets))
+library(ggplot2)
+scatter.advert.data <- ggplot(advert.data, aes(adverts, packets))
+scatter.advert.data + geom_point() + labs(x = "Adverts Watched", y = "Packets Bought")
+scatter.advert.data + geom_point(size = 3) + labs(x = "Adverts Watched", y = "Packets Bought")
+scatter.advert.data + geom_point(size = 3) + labs(x = "Adverts Watched", y = "Packets Bought")
+scatter.advert.data + geom_point(size = 3) + labs(x = "Adverts Watched", y = "Packets Bought") scale_y_continuous(limits=c(0, 15), breaks=0:15) + scale_x_continuous(limits=c(0, 9),#
+breaks=0:9)
+scatter.advert.data + geom_point(size = 3) + labs(x = "Adverts Watched", y = "Packets Bought") scale_y_continuous(limits=c(0, 15), breaks=0:15) + scale_x_continuous(limits=c(0, 9), breaks=0:9)
+scatter.advert.data + geom_point(size = 3) + labs(x = "Adverts Watched", y = "Packets Bought") + scale_y_continuous(limits=c(0, 15), breaks=0:15) + scale_x_continuous(limits=c(0, 9),breaks=0:9)
+ggsave("06 Advert Scatter Nice.png")
+install.packages("Hmisc")
+library(Hmisc)
+install.packages("ggm"); install.packages("polycor")
+library(boot); library(ggm); library(ggplot2); library(polycor)
+library(Rcmdr)
+exam.anxiety
+exam.data
+exam.data
+cor(exam.data, use = "complete.obs", method = "pearson")
+cor(exam.data, use ="complete.obs", method = "pearson")
+cor(examData, use = "complete.obs", method = "pearson")
+cor(exam.data, use = "complete.obs", method = "pearson")
+cor(exam.data$Exam, exam.data$Anxiety, use="complete.obs", method="pearson")
+examData = read.delim("Exam Anxiety.dat",  header = TRUE)
+cor(examData, use = "complete.obs", method = "pearson")
+cor(examData, use = "pairwise.complete.obs", method = "pearson")
+examData
+exam.data
+exam.data(0:10)
+str(examData)
+examData[0:10]
+examData[0:10,]
+exam.data2 <- exam.data[,c("Exam","Anxiety", "Revise")]
+cor(exam.data2)
+cor(exam.data2, use = "complete.obs", method = "pearson")
+cor(exam.data2)
+exam.matrix <- as.matrix(exam.data[,c("Exam", "Anxiety", "Revise")])
+exam.matrix
+rcorr(exam.data)
+rcorr(exam.matrix)
+Hmisc::rcorr(exam.matrix)
+cor.test(exam.data$Anxiety, exam.data$Exam)
+cor(exam.data2)^2
+cor(exam.data2)^2 *100
+liar.data = read.delim("The Biggest Liar.dat, header = TRUE")
+liar.data = read.delim("The Biggest Liar.dat", header = TRUE")
+liar.data = read.delim("The Biggest Liar.dat", header = TRUE")
+liar.data = read.delim("The Biggest Liar.dat", header = TRUE)
+liar.data
+cor(liar.data$Position, liar.data$Creativity, method = "Spearman")
+cor(liar.data$Position, liar.data$Creativity, method = "spearman")
+rcorr(as.matrix(liar.data[,c("Position", "Creativity")]))
+liar.matrix <- (as.matrix(liar.data[, c("Position", "Creativity")]))
+rcorr(liar.matrix)
+Hmisc::rcorr(liar.matrix)
+Hmisc::rcorr(as.matrix(liar.data[,c("Position", "Creativity")]))
+bootTau<-function(liarData,i)cor(liarData$Position[i], liarData$Creativity[i], use = "complete.obs", method = "kendall")
+bootTau
+bootTau<-function(liar.ata,i)cor(liarData$Position[i], liarData$Creativity[i], use = "complete.obs", method = "kendall")bootTau<-function(liar.data,i)cor(liar.data$Position[i], liar.data$Creativity[i], use = "complete.obs", method = "kendall")
+bootTau<-function(liar.data,i)cor(liar.data$Position[i], liar.data$Creativity[i], use = "complete.obs", method = "kendall")
+boot_kendall<-boot(liar.data, bootTau, 2000)
+boot_kendall
+boot.ci(boot_kendall)
+boot_kendall
+boot.ci(boot_kendall)
+boot.ci(boot_kendall, conf = 0.99)
+read.csv("pbcorr.csv", header = TRUE)
+cat.data <- read.csv("pbcorr.csv", header = TRUE)
+cat.data
+cat.data[10,]
+cat.data[1:10,]
+cat.data[1:10,]
+cat.data[1:10,]
+cat.data[1:10,]
+cor(cat.data, use = "complete.obs", method = "pearson")
+cor.test(cat.data$time, cat.data$gender)
+cor.test(cat.data$time, cat.data$recode)
+cat.frequencies <-table(cat.data$gender)
+cat.frequencies
+prop.table(cat.frequencies)
+polyserial(cat.data$time, cat.data$gender)
+help(polyserial)
