@@ -45,8 +45,8 @@ PearsonResidual <- (resid(pubReg)-mean(resid(pubReg)))/sd(resid(pubReg))
 album1<-read.delim("Album Sales 1.dat", header = TRUE)
 
 #----run the simple linear regression model---
-albumSales.1 <- lm(sales ~ adverts, data = album1)
-summary(albumSales.1)
+album.sales.1 <- lm(sales ~ adverts, data = album1)
+summary(album.sales.1)
 sqrt(0.3346)
 
 #----access the album2 data----
@@ -54,30 +54,30 @@ album2<-read.delim("Album Sales 2.dat", header = TRUE)
 
 
 #---Run the multiple regression model----
-albumSales.2<-lm(sales ~ adverts, data = album2)
-albumSales.3<-lm(sales ~ adverts + airplay + attract, data = album2)
-summary(albumSales.2)
-summary(albumSales.3)
+album.sales.2<-lm(sales ~ adverts, data = album2)
+album.sales.3<-lm(sales ~ adverts + airplay + attract, data = album2)
+summary(album.sales.2)
+summary(album.sales.3)
 
 #---We can obtain standardized parameter estimates with the lm.beta() function---
-lm.beta(albumSales.3)
+lm.beta(album.sales.3)
 #---Confidence intervals are obtained with the confint() function----
-confint(albumSales.3)
+confint(album.sales.3)
 
 #----To compare the R2 in two models, use the ANOVA command---
-anova(albumSales.2, albumSales.3)
+anova(album.sales.2, album.sales.3)
 
 
 #----Obtain casewise diagnostics and add them to the original data file.---
 
-album2$residuals<-resid(albumSales.3)
-album2$standardized.residuals <- rstandard(albumSales.3)
-album2$studentized.residuals <- rstudent(albumSales.3)
-album2$cooks.distance<-cooks.distance(albumSales.3)
-album2$dfbeta <- dfbeta(albumSales.3)
-album2$dffit <- dffits(albumSales.3)
-album2$leverage <- hatvalues(albumSales.3)
-album2$covariance.ratios <- covratio(albumSales.3)
+album2$residuals<-resid(album.sales.3)
+album2$standardized.residuals <- rstandard(album.sales.3)
+album2$studentized.residuals <- rstudent(album.sales.3)
+album2$cooks.distance<-cooks.distance(album.sales.3)
+album2$dfbeta <- dfbeta(album.sales.3)
+album2$dffit <- dffits(album.sales.3)
+album2$leverage <- hatvalues(album.sales.3)
+album2$covariance.ratios <- covratio(album.sales.3)
 
 #Save file
 write.table(album2, "Album Sales With Diagnostics.dat", sep = "\t", row.names = FALSE)
@@ -103,34 +103,34 @@ album2[album2$large.residual , c("cooks.distance", "leverage", "covariance.ratio
 
 
 #----The Durbin-Watson test is obtained with either dwt() or durbinWatsonTest()---
-durbinWatsonTest(albumSales.3)
-dwt(albumSales.3)
+durbinWatsonTest(album.sales.3)
+dwt(album.sales.3)
 
 #----Obtaining the VIF---
-vif(albumSales.3)
+vif(album.sales.3)
 
 #----The tolerance is 1/VIF---
-1/vif(albumSales.3)
+1/vif(album.sales.3)
 
 #----The mean VIF---
-mean(vif(albumSales.3))
+mean(vif(album.sales.3))
 
 
 #---Histogram of studentized residuals---
 
 hist(album2$studentized.residuals)
-hist(rstudent(albumSales.3))
+hist(rstudent(album.sales.3))
 
 #--Plot of residuals against fitted (predicted) values, with a flat line at the mean--
-plot(albumSales.3$fitted.values,rstandard(albumSales.3))
+plot(album.sales.3$fitted.values,rstandard(album.sales.3))
 abline(0, 0)
 
 #same as above
-plot(albumSales.3)
+plot(album.sales.3)
 
 #Publication quality graphs
 
-album2$fitted <- albumSales.3$fitted.values
+album2$fitted <- album.sales.3$fitted.values
 
 histogram<-ggplot(album2, aes(studentized.residuals)) + opts(legend.position = "none") + geom_histogram(aes(y=..density..), colour="black", fill="white") + labs(x = "Studentized Residual", y = "Density")
 histogram + stat_function(fun = dnorm, args = list(mean = mean(album2$studentized.residuals, na.rm = TRUE), sd = sd(album2$studentized.residuals, na.rm = TRUE)), colour = "red", size = 1)
@@ -146,7 +146,7 @@ ggsave(file=paste(imageDirectory,"07 Album sales ggplot QQ.png",sep="/"))
 
 
 #---R tends to give values to too many decimal places, you can usefully round these values to 2 decimals.
-round(rstandard(albumSales.3), 2)
+round(rstandard(album.sales.3), 2)
 
 
 
