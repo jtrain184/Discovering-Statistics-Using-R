@@ -132,7 +132,7 @@ plot(album.sales.3)
 
 album2$fitted <- album.sales.3$fitted.values
 
-histogram<-ggplot(album2, aes(studentized.residuals)) + opts(legend.position = "none") + geom_histogram(aes(y=..density..), colour="black", fill="white") + labs(x = "Studentized Residual", y = "Density")
+histogram<-ggplot(album2, aes(studentized.residuals)) + labs(legend.position = "none") + geom_histogram(aes(y=..density..), colour="black", fill="white") + labs(x = "Studentized Residual", y = "Density")
 histogram + stat_function(fun = dnorm, args = list(mean = mean(album2$studentized.residuals, na.rm = TRUE), sd = sd(album2$studentized.residuals, na.rm = TRUE)), colour = "red", size = 1)
 ggsave(file = paste(imageDirectory,"07 album sales ggplot Hist.png",sep="/"))
 
@@ -140,7 +140,7 @@ scatter <- ggplot(album2, aes(fitted, studentized.residuals))
 scatter + geom_point() + geom_smooth(method = "lm", colour = "Red")+ labs(x = "Fitted Values", y = "Studentized Residual") 
 ggsave(file=paste(imageDirectory,"07 Album sales ggplot scatter.png",sep="/"))
 
-qqplot.resid <- qplot(sample = album2$studentized.residuals, stat="qq") + labs(x = "Theoretical Values", y = "Observed Values") 
+qqplot.resid <- qplot(sample = album2$studentized.residuals) + labs(x = "Theoretical Values", y = "Observed Values") 
 qqplot.resid
 ggsave(file=paste(imageDirectory,"07 Album sales ggplot QQ.png",sep="/"))
 
