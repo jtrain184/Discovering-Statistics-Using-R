@@ -1,0 +1,100 @@
+metallica
+metallica$childAge
+metallica$childAge; metallica$Name
+metallica(1)
+metallica[1]
+metallica[1][2]
+metallica[2]
+metallica[1,2]
+metallica[1]
+metallica[1]metallica[2]
+metallica[1]
+metallica[2]
+name
+Name
+metallicaNames
+metallica$Name
+metallica$Age
+metallicaAges
+help c
+c help
+c?
+?c
+help(c)
+help(factor)
+#--------R souls tip 3.5-----------#
+husband<-c("1973-06-21", "1970-07-16", "1949-10-08", "1969-05-24")#
+wife<-c("1984-11-12", "1973-08-02", "1948-11-11", "1983-07-23")#
+agegap <- husband-wife#
+husband<-as.Date(c("1973-06-21", "1970-07-16", "1949-10-08", "1969-05-24"))#
+wife<-as.Date(c("1984-11-12", "1973-08-02", "1948-11-11", "1983-07-23"))#
+agegap <- husband-wife#
+agegap
+agegap
+job
+library(rcmdr)
+library(Rcmdr)
+install.packages("Rcmdr", dependencies= TRUE)
+library(Rcmdr)
+exam.data
+scatter <- ggplot(exam.data, aes(Anxiety, Exam))
+library(ggplot)
+library(ggplot2)
+scatter <- ggplot(exam.data, aes(Anxiety, Exam))
+scatter
+scatter + geom_point()
+scatter + geom_point() + labs(x = "Exam Anxiety", y = "Exam Performance %")
+saveInImageDirectory("Exam Anxiety Vs Performance.png")
+scatter + geom_point() + labs(x = "Exam Anxiety", y = "Exam Performance %")
+scatter + geom_point() + geom_smooth() + labs(x = "Exam Anxiety", y = "Exam Performance %")
+saveInImageDirectory("Exam Anxiety Vs Performance with Regression Line.png")
+scatter + geom_point() + geom_smooth(method = "lm", color = "Red") + labs(x = "Exam Anxiety", y = "Exam Performance %")
+saveInImageDirectory("Exam Anxiety Vs Performance with Linear Regression Line.png")
+scatter <- ggplot(exam.data, aes(Anxiety, Exam, color = Gender))
+scatter + geom_point + geom_smooth(method = "lm")
+scatter
+scatter + geom_point + geom_smooth(method = "lm")
+scatter + geom_point() + geom_smooth(method = "lm")
+scatter
+scatter <- ggplot(exam.data, aes(Anxiety, Exam, color = Gender))
+scatter + geom_point() + geom_smooth(method = "lm")
+scatter + geom_point() + geom_smooth(method = "lm", aes(fill = Gender), alpha = 0.1) + labs(x = "Exam Anxiety", y = "Exam Performance %", colour = "Gender")
+saveInImageDirectory("Exam Anxiety Vs Performance by Gender.png")
+getwd()
+setwd("Documents/Discovering Statistics Using R/Chapter 7/")
+anova(album.sales.2, album.sales.3)
+album2
+album2<-read.delim("Album Sales 2.dat", header = TRUE)#
+#---Run the multiple regression model----#
+album.sales.2<-lm(sales ~ adverts, data = album2)#
+album.sales.3<-lm(sales ~ adverts + airplay + attract, data = album2)#
+summary(album.sales.2)#
+summary(album.sales.3)
+x
+anova(album.sales.2, album.sales.3)
+album2$residuals<-resid(album.sales.3)#
+album2$standardized.residuals <- rstandard(album.sales.3)#
+album2$studentized.residuals <- rstudent(album.sales.3)#
+album2$cooks.distance<-cooks.distance(album.sales.3)#
+album2$dfbeta <- dfbeta(album.sales.3)#
+album2$dffit <- dffits(album.sales.3)#
+album2$leverage <- hatvalues(album.sales.3)#
+album2$covariance.ratios <- covratio(album.sales.3)
+album2
+album2[1:10,1:5]
+write.table(album2, "Album Sales With Diagnostics.dat", sep = "\t", row.names = FALSE)
+album2[1:10,1:5]
+album2$standardized.residuals>2| album2$standardized.residuals < -2
+album2$large.residual <- album2$standardized.residuals > 2 | album2$standardized.residuals < -2
+album2$large.residual
+sum(album2$large.residual)
+round(album2, digits = 3)
+album2[1:10,5:]
+album2[1:10,5]
+album2[1:10,5:10]
+album2[1:10,5:$]
+album2[1:10,]
+round(album2[,1:14], digits = 3)
+album2[album2$large.residual,c("sales", "airplay", "attract", "adverts", "standardized.residuals")]
+album2[album2$large.residual,c("sales", "airplay", "attract", "adverts", "standardized.residuals")]
+album2[album2$large.residual , c("cooks.distance", "leverage", "covariance.ratios")]
