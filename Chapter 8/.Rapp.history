@@ -60,47 +60,58 @@ scatter <- ggplot(exam.data, aes(Anxiety, Exam, color = Gender))
 scatter + geom_point() + geom_smooth(method = "lm")
 scatter + geom_point() + geom_smooth(method = "lm", aes(fill = Gender), alpha = 0.1) + labs(x = "Exam Anxiety", y = "Exam Performance %", colour = "Gender")
 saveInImageDirectory("Exam Anxiety Vs Performance by Gender.png")
-ls
+load(file="Documents/Discovering Statistics Using R/Chapter 8/.RData")
 getwd()
-setwd("Documents/Discovering Statistics Using R/Chapter 8/"
-)
-library(mlogit)
-eelData<-read.delim("Data Files/eel.dat", header = TRUE)
 eelData
-eelData$Cured<-relevel(eelData$Cured, "Not Cured")#
-eelData$Intervention<-relevel(eelData$Intervention, "No Treatment")
-eelModel.1 <- glm(Cured ~ Intervention, data = eelData, family = binomial())#
-eelModel.2 <- glm(Cured ~ Intervention + Duration, data = eelData, family = binomial())
 eelModel.1
-summary(eelModel.1)#
-summary(eelModel.2)
-summary(eelModel.1)#
-summary(eelModel.2)
-modelChi <- eelModel.1$null.deviance - eelModel.1$deviance
 modelChi
-“chidf <- eelModel.1$df.null – eelModel.1$df.residual#
-”#
-#
-Excerpt From: Field, Andy. “Discovering Statistics Using R.” iBooks.
-chidf <- eelModel.1$df.null - eelModel.1$df.residual
 chidf
 chisq.prob <- 1 - pchisq(modelChi, chidf)
-chisq.prob
-R2.hl<-modelChi/eelModel.1$null.deviance
-R2.hl
-help(glm)
-help(lm)
-help(glm)
-logisticPseudoR2s <- function(LogModel) {#
-	dev <- LogModel$deviance #
-	nullDev <- LogModel$null.deviance #
-	modelN <-  length(LogModel$fitted.values)#
-	R.l <-  1 -  dev / nullDev#
-	R.cs <- 1- exp ( -(nullDev - dev) / modelN)#
-	R.n <- R.cs / ( 1 - ( exp (-(nullDev / modelN))))#
-	cat("Pseudo R^2 for logistic regression\n")#
-	cat("Hosmer and Lemeshow R^2  ", round(R.l, 3), "\n")#
-	cat("Cox and Snell R^2        ", round(R.cs, 3), "\n")#
-	cat("Nagelkerke R^2           ", round(R.n, 3),    "\n")#
-      }
+modelChi; chidf; chisq.prob
+anova(eelModel.1, eelModel.2)
+logisticPseudoR2s
 logisticPseudoR2s(eelModel.1)
+anova(eelModel.1, eelModel.2)
+load("Documents/Discovering Statistics Using R/Chapter 8/.RData")
+eelModel.1
+help(fitted)
+eelData[, c("leverage", "studentized.residuals", "dfbeta")]
+head(eelData[, c("Cured", "Intervention", "Duration", "predicted.probabilities")])
+eelData$predicted.probabilities<-fitted(eelModel.1)#
+eelData$standardized.residuals<-rstandard(eelModel.1)#
+eelData$studentized.residuals<-rstudent(eelModel.1)#
+eelData$dfbeta<-dfbeta(eelModel.1)#
+eelData$dffit<-dffits(eelModel.1)#
+eelData $leverage<-hatvalues(eelModel.1)
+head(eelData[, c("Cured", "Intervention", "Duration", "predicted.probabilities")])#
+eelData[, c("leverage", "studentized.residuals", "dfbeta")]
+load("Documents/Discovering Statistics Using R/Chapter 8/.RData")
+penalty
+eelModel.1
+penaltyData<-read.delim("penalty.dat", header = TRUE)#
+#
+#look at first 6 cases of data#
+head(penaltyData)#
+#
+#Create the two hierarchical models:#
+#
+penaltyModel.1 <- glm(Scored ~ Previous + PSWQ, data = penaltyData, family = binomial())#
+penaltyModel.2 <- glm(Scored ~ Previous + PSWQ + Anxious, data = penaltyData, family = binomial())#
+#This works too:#
+penaltyModel.2 <- update(penaltyModel.1, .~. + Anxious)#
+summary(penaltyModel.1)#
+summary(penaltyModel.2)
+setwd("Documents/Discovering Statistics Using R/Chapter 8/")
+> penaltyData<-read.delim("Data Files/penalty.dat", header = TRUE)
+penaltyData<-read.delim("Data Files/penalty.dat", header = TRUE)
+#look at first 6 cases of data#
+head(penaltyData)#
+#
+#Create the two hierarchical models:#
+#
+penaltyModel.1 <- glm(Scored ~ Previous + PSWQ, data = penaltyData, family = binomial())#
+penaltyModel.2 <- glm(Scored ~ Previous + PSWQ + Anxious, data = penaltyData, family = binomial())#
+#This works too:#
+penaltyModel.2 <- update(penaltyModel.1, .~. + Anxious)#
+summary(penaltyModel.1)#
+summary(penaltyModel.2)
