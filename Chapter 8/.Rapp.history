@@ -1,0 +1,106 @@
+metallica
+metallica$childAge
+metallica$childAge; metallica$Name
+metallica(1)
+metallica[1]
+metallica[1][2]
+metallica[2]
+metallica[1,2]
+metallica[1]
+metallica[1]metallica[2]
+metallica[1]
+metallica[2]
+name
+Name
+metallicaNames
+metallica$Name
+metallica$Age
+metallicaAges
+help c
+c help
+c?
+?c
+help(c)
+help(factor)
+#--------R souls tip 3.5-----------#
+husband<-c("1973-06-21", "1970-07-16", "1949-10-08", "1969-05-24")#
+wife<-c("1984-11-12", "1973-08-02", "1948-11-11", "1983-07-23")#
+agegap <- husband-wife#
+husband<-as.Date(c("1973-06-21", "1970-07-16", "1949-10-08", "1969-05-24"))#
+wife<-as.Date(c("1984-11-12", "1973-08-02", "1948-11-11", "1983-07-23"))#
+agegap <- husband-wife#
+agegap
+agegap
+job
+library(rcmdr)
+library(Rcmdr)
+install.packages("Rcmdr", dependencies= TRUE)
+library(Rcmdr)
+exam.data
+scatter <- ggplot(exam.data, aes(Anxiety, Exam))
+library(ggplot)
+library(ggplot2)
+scatter <- ggplot(exam.data, aes(Anxiety, Exam))
+scatter
+scatter + geom_point()
+scatter + geom_point() + labs(x = "Exam Anxiety", y = "Exam Performance %")
+saveInImageDirectory("Exam Anxiety Vs Performance.png")
+scatter + geom_point() + labs(x = "Exam Anxiety", y = "Exam Performance %")
+scatter + geom_point() + geom_smooth() + labs(x = "Exam Anxiety", y = "Exam Performance %")
+saveInImageDirectory("Exam Anxiety Vs Performance with Regression Line.png")
+scatter + geom_point() + geom_smooth(method = "lm", color = "Red") + labs(x = "Exam Anxiety", y = "Exam Performance %")
+saveInImageDirectory("Exam Anxiety Vs Performance with Linear Regression Line.png")
+scatter <- ggplot(exam.data, aes(Anxiety, Exam, color = Gender))
+scatter + geom_point + geom_smooth(method = "lm")
+scatter
+scatter + geom_point + geom_smooth(method = "lm")
+scatter + geom_point() + geom_smooth(method = "lm")
+scatter
+scatter <- ggplot(exam.data, aes(Anxiety, Exam, color = Gender))
+scatter + geom_point() + geom_smooth(method = "lm")
+scatter + geom_point() + geom_smooth(method = "lm", aes(fill = Gender), alpha = 0.1) + labs(x = "Exam Anxiety", y = "Exam Performance %", colour = "Gender")
+saveInImageDirectory("Exam Anxiety Vs Performance by Gender.png")
+ls
+getwd()
+setwd("Documents/Discovering Statistics Using R/Chapter 8/"
+)
+library(mlogit)
+eelData<-read.delim("Data Files/eel.dat", header = TRUE)
+eelData
+eelData$Cured<-relevel(eelData$Cured, "Not Cured")#
+eelData$Intervention<-relevel(eelData$Intervention, "No Treatment")
+eelModel.1 <- glm(Cured ~ Intervention, data = eelData, family = binomial())#
+eelModel.2 <- glm(Cured ~ Intervention + Duration, data = eelData, family = binomial())
+eelModel.1
+summary(eelModel.1)#
+summary(eelModel.2)
+summary(eelModel.1)#
+summary(eelModel.2)
+modelChi <- eelModel.1$null.deviance - eelModel.1$deviance
+modelChi
+“chidf <- eelModel.1$df.null – eelModel.1$df.residual#
+”#
+#
+Excerpt From: Field, Andy. “Discovering Statistics Using R.” iBooks.
+chidf <- eelModel.1$df.null - eelModel.1$df.residual
+chidf
+chisq.prob <- 1 - pchisq(modelChi, chidf)
+chisq.prob
+R2.hl<-modelChi/eelModel.1$null.deviance
+R2.hl
+help(glm)
+help(lm)
+help(glm)
+logisticPseudoR2s <- function(LogModel) {#
+	dev <- LogModel$deviance #
+	nullDev <- LogModel$null.deviance #
+	modelN <-  length(LogModel$fitted.values)#
+	R.l <-  1 -  dev / nullDev#
+	R.cs <- 1- exp ( -(nullDev - dev) / modelN)#
+	R.n <- R.cs / ( 1 - ( exp (-(nullDev / modelN))))#
+	cat("Pseudo R^2 for logistic regression\n")#
+	cat("Hosmer and Lemeshow R^2  ", round(R.l, 3), "\n")#
+	cat("Cox and Snell R^2        ", round(R.cs, 3), "\n")#
+	cat("Nagelkerke R^2           ", round(R.n, 3),    "\n")#
+      }
+logisticPseudoR2s(eelModel.1)
