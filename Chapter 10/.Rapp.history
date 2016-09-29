@@ -1,0 +1,105 @@
+metallica
+metallica$childAge
+metallica$childAge; metallica$Name
+metallica(1)
+metallica[1]
+metallica[1][2]
+metallica[2]
+metallica[1,2]
+metallica[1]
+metallica[1]metallica[2]
+metallica[1]
+metallica[2]
+name
+Name
+metallicaNames
+metallica$Name
+metallica$Age
+metallicaAges
+help c
+c help
+c?
+?c
+help(c)
+help(factor)
+#--------R souls tip 3.5-----------#
+husband<-c("1973-06-21", "1970-07-16", "1949-10-08", "1969-05-24")#
+wife<-c("1984-11-12", "1973-08-02", "1948-11-11", "1983-07-23")#
+agegap <- husband-wife#
+husband<-as.Date(c("1973-06-21", "1970-07-16", "1949-10-08", "1969-05-24"))#
+wife<-as.Date(c("1984-11-12", "1973-08-02", "1948-11-11", "1983-07-23"))#
+agegap <- husband-wife#
+agegap
+agegap
+job
+library(rcmdr)
+library(Rcmdr)
+install.packages("Rcmdr", dependencies= TRUE)
+library(Rcmdr)
+exam.data
+scatter <- ggplot(exam.data, aes(Anxiety, Exam))
+library(ggplot)
+library(ggplot2)
+scatter <- ggplot(exam.data, aes(Anxiety, Exam))
+scatter
+scatter + geom_point()
+scatter + geom_point() + labs(x = "Exam Anxiety", y = "Exam Performance %")
+saveInImageDirectory("Exam Anxiety Vs Performance.png")
+scatter + geom_point() + labs(x = "Exam Anxiety", y = "Exam Performance %")
+scatter + geom_point() + geom_smooth() + labs(x = "Exam Anxiety", y = "Exam Performance %")
+saveInImageDirectory("Exam Anxiety Vs Performance with Regression Line.png")
+scatter + geom_point() + geom_smooth(method = "lm", color = "Red") + labs(x = "Exam Anxiety", y = "Exam Performance %")
+saveInImageDirectory("Exam Anxiety Vs Performance with Linear Regression Line.png")
+scatter <- ggplot(exam.data, aes(Anxiety, Exam, color = Gender))
+scatter + geom_point + geom_smooth(method = "lm")
+scatter
+scatter + geom_point + geom_smooth(method = "lm")
+scatter + geom_point() + geom_smooth(method = "lm")
+scatter
+scatter <- ggplot(exam.data, aes(Anxiety, Exam, color = Gender))
+scatter + geom_point() + geom_smooth(method = "lm")
+scatter + geom_point() + geom_smooth(method = "lm", aes(fill = Gender), alpha = 0.1) + labs(x = "Exam Anxiety", y = "Exam Performance %", colour = "Gender")
+saveInImageDirectory("Exam Anxiety Vs Performance by Gender.png")
+load(file="Documents/Discovering Statistics Using R/Chapter 8/.RData")
+getwd()
+eelData
+eelModel.1
+modelChi
+chidf
+chisq.prob <- 1 - pchisq(modelChi, chidf)
+modelChi; chidf; chisq.prob
+anova(eelModel.1, eelModel.2)
+logisticPseudoR2s
+logisticPseudoR2s(eelModel.1)
+anova(eelModel.1, eelModel.2)
+load("Documents/Discovering Statistics Using R/Chapter 8/.RData")
+eelModel.1
+help(fitted)
+eelData[, c("leverage", "studentized.residuals", "dfbeta")]
+head(eelData[, c("Cured", "Intervention", "Duration", "predicted.probabilities")])
+eelData$predicted.probabilities<-fitted(eelModel.1)#
+eelData$standardized.residuals<-rstandard(eelModel.1)#
+eelData$studentized.residuals<-rstudent(eelModel.1)#
+eelData$dfbeta<-dfbeta(eelModel.1)#
+eelData$dffit<-dffits(eelModel.1)#
+eelData $leverage<-hatvalues(eelModel.1)
+head(eelData[, c("Cured", "Intervention", "Duration", "predicted.probabilities")])#
+eelData[, c("leverage", "studentized.residuals", "dfbeta")]
+load("Documents/Discovering Statistics Using R/Chapter 10/")
+setwd("Documents/Discovering Statistics Using R/Chapter 10/")
+getwd()
+library(ggplot2)#
+library(granova)#
+library(car)#
+library(Rcmdr)#
+library(pastecs)#
+library(multcomp)#
+library(compute.es)#
+library(WRS2)
+install.packages("granova")
+install.packages("compute.es")
+dummyData<-read.delim("Data Files/Dummy.dat", header = TRUE)#
+dummyData$dose<-factor(dummyData$dose, levels = c(1:3), labels = c("Placebo", "Low Dose", "High Dose"))#
+#
+dummy.model<-lm(libido~dummy1 + dummy2, data = dummyData)#
+summary(dummy.model)
